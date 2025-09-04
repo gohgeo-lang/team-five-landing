@@ -1,3 +1,241 @@
-style {
-    /* 여기에 스타일을 추가하세요 */
-}
+   /* 모바일 반응형 스타일 */
+   @media (max-width: 768px) {
+       section {
+           font-size: 1.2rem;
+           /* 글자 크기 줄이기 */
+           padding: 15px;
+           /* 여백 줄이기 */
+           text-align: center;
+           /* 중앙 정렬 */
+       }
+
+       section h1,
+       section h2 {
+           font-size: 1.6rem;
+           /* 제목도 줄이기 */
+       }
+
+       section p {
+           font-size: 1rem;
+           line-height: 1.5;
+           /* 줄 간격 넉넉하게 */
+       }
+
+       .detail-item {
+           flex-direction: column;
+           /* 이미지/글 세로 배치 */
+           text-align: center;
+       }
+
+       .detail-image {
+           margin-top: 15px;
+       }
+   }
+
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Noto Sans KR', sans-serif;
+   }
+
+   body {
+
+       transition: background-color 0.5s, color 0.5s;
+       scroll-behavior: smooth;
+       /* 부드러운 스크롤 */
+   }
+
+   section {
+       height: 100vh;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       font-size: 2rem;
+       text-align: center;
+       padding: 20px;
+       transition: color 0.5s;
+   }
+
+   section img {
+       max-width: 400px;
+       width: 80%;
+       margin-bottom: 20px;
+       border-radius: 15px;
+       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+   }
+
+   button {
+       padding: 12px 30px;
+       font-size: 1.2rem;
+       border: none;
+       border-radius: 8px;
+       cursor: pointer;
+       transition: background-color 0.3s, color 0.3s;
+   }
+
+   /* 헤더 기본 스타일 */
+   .header {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 80px;
+       display: flex;
+       align-items: center;
+       z-index: 999;
+       background: rgba(255, 255, 255, 0.7);
+       /* 반투명 */
+       backdrop-filter: blur(10px);
+       /* 유리같은 블러 효과 */
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+       transition: height 0.3s, background 0.3s;
+   }
+
+   /* 스크롤 시 헤더 축소 */
+   .header.scrolled {
+       height: 65px;
+       background: rgba(255, 255, 255, 0.9);
+   }
+
+   /* 로고 */
+   .logo {
+       font-size: 1.8rem;
+       font-weight: 700;
+       color: #5a3e36;
+       /* 카페 톤 브라운 */
+       margin-left: 40px;
+   }
+
+   /* 네비게이션 */
+   .nav-container {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+   }
+
+   .nav-menu {
+       list-style: none;
+       display: flex;
+       gap: 40px;
+       margin-right: 40px;
+   }
+
+   .nav-menu li {
+       position: relative;
+   }
+
+   .nav-link {
+       text-decoration: none;
+       font-size: 1.1rem;
+       color: #333;
+       transition: color 0.3s;
+   }
+
+   .nav-link:hover {
+       color: #5a3e36;
+       /* 카페 브라운 컬러 */
+   }
+
+   /* 밑줄 애니메이션 */
+   .nav-link::after {
+       content: "";
+       position: absolute;
+       left: 0;
+       bottom: -6px;
+       width: 0;
+       height: 2px;
+       background: #5a3e36;
+       transition: width 0.3s;
+   }
+
+   .nav-link:hover::after {
+       width: 100%;
+   }
+
+   /* 섹션별 스타일 */
+   .main-visual {
+       background-color: #dfd8c8;
+       color: #5a3e36;
+   }
+
+   .main-visual button {
+       background-color: #5a3e36;
+       color: #fff;
+   }
+
+   .main-visual button:hover {
+       background-color: #8b5e4f;
+   }
+
+   .intro-section {
+       background-color: #cabfab;
+       color: #fff;
+   }
+
+   .intro-section button {
+       background-color: #fff;
+       color: #c4a484;
+   }
+
+   .intro-section button:hover {
+       background-color: #e0c8b0;
+   }
+
+   .detail-section {
+       background-color: #52575d;
+       color: #fff;
+   }
+
+   .detail-section button {
+       background-color: #fff;
+       color: #8d6e63;
+   }
+
+   .detail-section button:hover {
+       background-color: #b59c92;
+   }
+
+   .footer {
+       background-color: #41444b;
+       color: #fff;
+   }
+
+   .footer button {
+       background-color: #fff;
+       color: #4caf50;
+   }
+
+   .footer button:hover {
+       background-color: #81c784;
+   }
+
+   /* 오른쪽 dot 네비게이션 */
+   .scroll-nav {
+       position: fixed;
+       top: 50%;
+       right: 20px;
+       transform: translateY(-50%);
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+       z-index: 1000;
+   }
+
+   .scroll-nav a {
+       width: 12px;
+       height: 12px;
+       border-radius: 50%;
+       background: rgba(255, 255, 255, 0.5);
+       display: block;
+       transition: background 0.3s, transform 0.3s;
+   }
+
+   .scroll-nav a.active {
+       background: #fff;
+       transform: scale(1.3);
+   }
+
+   </style><link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet"><link rel="stylesheet" href="css/style.css">
