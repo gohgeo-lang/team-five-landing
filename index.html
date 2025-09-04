@@ -10,10 +10,135 @@
 </head>
 
 <body>
-    <h1>테스트</h1>
+  <!-- 헤더 -->
+   <header class="header">
+       <div class="nav-container">
+           <div class="logo">BROO BROO</div>
+           <nav>
+               <ul class="nav-menu">
+                   <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
+                   <li><a href="#intro" class="nav-link">소개 섹션</a></li>
+                   <li><a href="#details" class="nav-link">상세 섹션</a></li>
+               </ul>
+           </nav>
+       </div>
+   </header>
 
-    <script src="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js>"></script>
-    <script src="js/main.js"></script>
+
+   <!-- 메인 비주얼 -->
+   <section id="main-visual" class="main-visual">
+       <div class="visual-content">
+           <h1>브루브루 카페</h1>
+           <p>당신만의 특별한 공간에서 완벽한 커피를</p>
+           <a href="#intro" class="cta-button">카페 둘러보기</a>
+       </div>
+   </section>
+
+
+   <!-- 소개 섹션 -->
+   <section id="intro" class="intro-section">
+       <div class="container">
+           <h2 class="section-title">브루브루를 소개합니다</h2>
+           <div class="carousel-container">
+               <div class="carousel-track" id="carouselTrack">
+                   <!-- 카드 1: 카페 전반 분위기 -->
+                   <div class="carousel-card">
+                       <div class="card-image">카페 분위기 이미지</div>
+                       <h3>편안하고 아늑한 분위기</h3>
+                       <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. 혼자만의 시간이 필요할 때, 친구들과 수다를 떨고 싶을 때, 집중해서 일하고 싶을 때 - 당신이 원하는 바로 그 분위기를 찾으실 수 있습니다.</p>
+                   </div>
+                  
+                   <!-- 카드 2: 카페 메뉴 전반 -->
+                   <div class="carousel-card">
+                       <div class="card-image">카페 메뉴 이미지</div>
+                       <h3>정성 가득한 프리미엄 메뉴</h3>
+                       <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피로 만든 메뉴들이 여러분의 미각을 만족시켜 드립니다. 시즌 한정 메뉴도 놓치지 마세요!</p>
+                   </div>
+                  
+                   <!-- 카드 3: 카페 위치 -->
+                   <div class="carousel-card">
+                       <div class="card-image">카페 위치 이미지</div>
+                       <h3>접근성 좋은 최적의 위치</h3>
+                       <p>지하철역에서 도보 3분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다. 넓은 주차공간과 함께 대중교통으로도 편리하게 방문하실 수 있어, 일상 속에서 언제든지 특별한 휴식을 즐기실 수 있습니다.</p>
+                   </div>
+               </div>
+           </div>
+          
+           <div class="carousel-controls">
+               <button class="carousel-btn" onclick="previousSlide()">← 이전</button>
+               <button class="carousel-btn" onclick="nextSlide()">다음 →</button>
+           </div>
+          
+           <div class="carousel-indicators">
+               <span class="indicator active" onclick="currentSlide(1)"></span>
+               <span class="indicator" onclick="currentSlide(2)"></span>
+               <span class="indicator" onclick="currentSlide(3)"></span>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- 상세 섹션 -->
+   <section id="details" class="detail-section">
+       <div class="container">
+           <h2 class="section-title">층별 공간 안내</h2>
+          
+           <!-- 상세 섹션 1: 2층 -->
+           <div class="detail-item">
+               <div class="detail-content">
+                   <h3>2층 - 자유로운 소통 공간</h3>
+                   <p>친구들과의 즐거운 수다, 가족과의 따뜻한 시간을 위한 공간입니다. 넓고 개방적인 구조로 자유로운 분위기 속에서 편안하게 대화를 나누실 수 있습니다. 큰 테이블과 소파석이 마련되어 있어 단체 모임이나 캐주얼한 만남에 최적화된 공간입니다.</p>
+               </div>
+               <div class="detail-image">2층 공간 이미지</div>
+           </div>
+          
+           <!-- 상세 섹션 2: 1층 -->
+           <div class="detail-item">
+               <div class="detail-content">
+                   <h3>1층 - 리프레시 공간</h3>
+                   <p>잠깐의 휴식과 재충전이 필요할 때 찾는 공간입니다. 바쁜 일상 중 잠시 들러 맛있는 커피 한 잔으로 기분을 전환하고 싶을 때, 가벼운 미팅이나 간단한 업무 처리가 필요할 때 이용하기 좋습니다. 밝고 활기찬 분위기로 에너지를 충전해보세요.</p>
+               </div>
+               <div class="detail-image">1층 공간 이미지</div>
+           </div>
+          
+           <!-- 상세 섹션 3: B1층 -->
+           <div class="detail-item">
+               <div class="detail-content">
+                   <h3>B1층 - 완전한 몰입 공간</h3>
+                   <p>집중이 필요한 업무나 스터디를 위한 조용하고 아늑한 공간입니다. 개인 좌석과 스터디 룸이 구비되어 있어 방해받지 않고 온전히 자신만의 시간에 몰입할 수 있습니다. 조용한 음악과 함께 최고의 집중 환경을 제공합니다.</p>
+               </div>
+               <div class="detail-image">B1층 공간 이미지</div>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- 푸터 -->
+   <footer id="footer" class="footer">
+       <div class="footer-content">
+           <h3>브루브루 카페</h3>
+           <div class="footer-info">
+               <div>
+                   <h4>운영시간</h4>
+                   <p>평일: 07:00 - 22:00<br>
+                      주말: 08:00 - 23:00</p>
+               </div>
+               <div>
+                   <h4>연락처</h4>
+                   <p>전화: 02-1234-5678<br>
+                      이메일: info@brewbrew.co.kr</p>
+               </div>
+               <div>
+                   <h4>주소</h4>
+                   <p>서울시 강남구 테헤란로<br>
+                      123번길 45 브루브루빌딩</p>
+               </div>
+           </div>
+           <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
+               <p>&copy; 2024 브루브루 카페. All rights reserved.</p>
+           </div>
+       </div>
+   </footer>
+
 </body>
-ㅇㅁㅇㄹㅁㅇㄹㅁㅇㄴㄹs
 </html>
