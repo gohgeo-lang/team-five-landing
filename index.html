@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 스타일 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 부트스트랩 링크 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>우리 팀 프로젝트</title>
-    <link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -16,8 +18,16 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo">BROO BROO</div>
+
+            <!-- 햄버거 버튼 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
                     <li><a href="#intro" class="nav-link">소개 섹션</a></li>
                     <li><a href="#details" class="nav-link">상세 섹션</a></li>
@@ -26,6 +36,7 @@
         </div>
     </header>
 
+    <div class="overlay" id="overlay"></div>
 
     <!-- 메인 비주얼 -->
     <section id="main-visual" class="main-visual">
@@ -147,7 +158,8 @@
             </div>
         </div>
     </footer>
-
+    <!-- Js 파일 불러오기 -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
