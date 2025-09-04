@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우리 팀 프로젝트</title>
-    <link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -38,49 +37,54 @@
 
 
     <!-- 소개 섹션 -->
-    <section id="intro" class="intro-section">
-        <div class="container">
-            <h2 class="section-title">브루브루를 소개합니다</h2>
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- 카드 1: 카페 전반 분위기 -->
-                    <div class="carousel-card">
-                        <div class="card-image">카페 분위기 이미지</div>
-                        <h3>편안하고 아늑한 분위기</h3>
-                        <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. 혼자만의 시간이 필요할 때, 친구들과 수다를 떨고 싶을 때, 집중해서
-                            일하고 싶을 때 - 당신이 원하는 바로 그 분위기를 찾으실 수 있습니다.</p>
-                    </div>
+<section id="intro" class="intro-section">
+    <div class="container">
+        <h2 class="section-title">브루브루를 소개합니다</h2>
+        
+        <div id="introCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
 
-                    <!-- 카드 2: 카페 메뉴 전반 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
                     <div class="carousel-card">
-                        <div class="card-image">카페 메뉴 이미지</div>
+                        <img src="img/1.jpg" class="d-block w-100" alt="카페 분위기 이미지">
+                        <h3>편안하고 아늑한 분위기를 하루 종일</h3>
+                        <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. 혼자만의 시간이 필요할 때, 친구들과 수다를 떨고 싶을 때, 집중해서 일하고 싶을 때 - 당신이 원하는 바로 그 분위기를 찾으실 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-card">
+                        <img src="img/2.jpg" class="d-block w-100" alt="카페 메뉴 이미지">
                         <h3>정성 가득한 프리미엄 메뉴</h3>
-                        <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피로 만든 메뉴들이 여러분의 미각을 만족시켜 드립니다. 시즌 한정
-                            메뉴도 놓치지 마세요!</p>
+                        <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피로 만든 메뉴들이 여러분의 미각을 만족시켜 드립니다. 시즌 한정 메뉴도 놓치지 마세요!</p>
                     </div>
+                </div>
 
-                    <!-- 카드 3: 카페 위치 -->
+                <div class="carousel-item">
                     <div class="carousel-card">
-                        <div class="card-image">카페 위치 이미지</div>
+                        <img src="img/3.png" class="d-block w-100" alt="카페 위치 이미지">
                         <h3>접근성 좋은 최적의 위치</h3>
-                        <p>지하철역에서 도보 3분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다. 넓은 주차공간과 함께 대중교통으로도 편리하게 방문하실 수 있어, 일상 속에서 언제든지
-                            특별한 휴식을 즐기실 수 있습니다.</p>
+                        <p>송파나루역 4번 출구에서 도보 2분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다. 대중교통으로도 편리하게 방문하실 수 있어, 일상 속에서 언제든지 특별한 휴식과 몰입을 원하는 만큼 즐기실 수 있습니다.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="carousel-controls">
-                <button class="carousel-btn" onclick="previousSlide()">← 이전</button>
-                <button class="carousel-btn" onclick="nextSlide()">다음 →</button>
-            </div>
-
-            <div class="carousel-indicators">
-                <span class="indicator active" onclick="currentSlide(1)"></span>
-                <span class="indicator" onclick="currentSlide(2)"></span>
-                <span class="indicator" onclick="currentSlide(3)"></span>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#introCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#introCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </section>
+        </div>
+</section>
 
 
     <!-- 상세 섹션 -->
@@ -148,6 +152,7 @@
         </div>
     </footer>
 
-</body>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>
