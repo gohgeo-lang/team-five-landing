@@ -55,37 +55,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
 
-    // 섹션 시작 기준 누적 높이 계산
-    let totalHeight = 0;
-    sections.forEach(sec => totalHeight += sec.offsetHeight);
+    // 🔥 마지막 섹션 끝까지만 기준으로 잡음
+    const lastSection = sections[sections.length - 1];
+    const lastSectionBottom = lastSection.offsetTop + lastSection.offsetHeight;
+    const scrollMax = lastSectionBottom - windowHeight;
 
-    let filledHeight = 0;
+    // 현재 스크롤 진행도 (0 ~ 1)
+    const progress = Math.min(scrollY / scrollMax, 1);
+
+    // 게이지 채우기
+    progressFill.style.height = `${progress * 100}%`;
+
+    // 현재 섹션 번호 업데이트
     let currentSectionIndex = 0;
-
     sections.forEach((section, index) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      if (scrollY + windowHeight / 2 >= sectionTop) {
+      if (scrollY + windowHeight / 2 >= section.offsetTop) {
         currentSectionIndex = index;
-        filledHeight = 0;
-
-        // 이전 섹션 누적
-        for (let i = 0; i < index; i++) {
-          filledHeight += sections[i].offsetHeight;
-        }
-
-        // 현재 섹션에서 진행된 높이
-        filledHeight += Math.min(scrollY - sectionTop + windowHeight/2, sectionHeight);
       }
     });
 
-    // 게이지 높이 % 계산
-    const fillPercent = (filledHeight / totalHeight) * 100;
-    progressFill.style.height = `${fillPercent}%`;
-
-    // 섹션 번호 업데이트
-    const sectionNumber = String(currentSectionIndex + 1).padStart(2, '0');
+    const sectionNumber = String(currentSectionIndex + 1).padStart(2, "0");
     topNumber.textContent = sectionNumber;
     bottomNumber.textContent = sectionNumber;
   });
