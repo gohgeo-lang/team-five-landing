@@ -1,4 +1,4 @@
-//헤더 관련 스크립트입니다.(전역설정)
+// 헤더 관련 스크립트 (전역설정)
 
 const header = document.querySelector(".header");
 const hamburger = document.getElementById("hamburger");
@@ -34,15 +34,14 @@ window.addEventListener("scroll", () => {
 // 화면 클릭 → 헤더 토글
 document.addEventListener("click", (e) => {
     if (lock || header.classList.contains("fixed")) return;
-    if (e.target.closest("#hamburger") || e.target.closest("#navMenu")) return;
 
-
+    // 햄버거, 메뉴, 검색창 클릭 시 무시
     if (
-        e.target.closest("#hamburger") || 
-        e.target.closest("#navMenu") || 
-        e.target.closest(".search-box")  
-    ) return;
-
+        e.target.closest("#hamburger") ||
+        e.target.closest("#navMenu") ||
+        e.target.closest(".search-box")
+    )
+        return;
 
     header.classList.toggle("show");
     header.classList.toggle("hidden");
@@ -59,33 +58,25 @@ hamburger.addEventListener("click", (e) => {
         header.classList.add("show", "fixed");
         header.classList.remove("hidden");
     } else {
-        // 메뉴 닫힘 → 고정 해제 + 헤더 강제 보이기
-        header.classList.remove("fixed");
-        header.classList.add("show");
-        header.classList.remove("hidden");
-
-        // 0.1초 동안 다른 이벤트 무시 (사라짐 방지)
-        lock = true;
-        setTimeout(() => (lock = false), 100);
+        // 메뉴 닫힘 → 고정 해제 + 헤더 보이기
+        closeMenu();
     }
 });
 
 // 메뉴 링크 클릭 → 닫기
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        overlay.classList.remove("active");
-        header.classList.remove("fixed");
-        header.classList.add("show");
-        header.classList.remove("hidden");
-
-        lock = true;
-        setTimeout(() => (lock = false), 100);
+        closeMenu();
     });
 });
 
 // 오버레이 클릭 → 닫기
 overlay.addEventListener("click", () => {
+    closeMenu();
+});
+
+// 메뉴 닫기 함수
+function closeMenu() {
     navMenu.classList.remove("active");
     overlay.classList.remove("active");
     header.classList.remove("fixed");
@@ -94,4 +85,4 @@ overlay.addEventListener("click", () => {
 
     lock = true;
     setTimeout(() => (lock = false), 100);
-});
+}
