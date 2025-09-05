@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <title>우리 팀 프로젝트</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main-visual.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/details.css">
 
 </head>
 
@@ -26,24 +31,27 @@
         <div class="nav-container">
             <div class="logo">BROO BROO</div>
 
-            <!-- 검색창 -->
-            <div class="search-box">
-                <input type="text" placeholder="검색어를 입력하세요">
-                <button class="search-btn">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-
-            <!-- 네비메뉴들 -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
+                    <!-- 모바일 전용 -->
+                    <li class="mobile-only menu-header">
+                        <h3>BROO BROO</h3>
+                        <p class="slogan">당신만의 특별한 공간에서 완벽한 커피를</p>
+                    </li>
+
+                    <!-- 공통 메뉴 -->
                     <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
                     <li><a href="#intro" class="nav-link">소개 섹션</a></li>
                     <li><a href="#details" class="nav-link">상세 섹션</a></li>
                     <li><a href="#reserve" class="nav-link reserve-link">예약하기</a></li>
-                    <li><a href="#login" class="nav-link">로그인</a></li>
-                    <li><a href="#signup" class="nav-link">회원가입</a></li>
+                    <li><a href="#events" class="nav-link">이벤트</a></li>
+
+                    <!-- 모바일 전용 하단 -->
+                    <li class="mobile-only divider"></li>
+                    <li class="mobile-only"><a href="#contact" class="nav-link">고객센터</a></li>
+                    <li class="mobile-only"><a href="#location" class="nav-link">오시는 길</a></li>
                 </ul>
+
             </nav>
 
             <!-- 햄버거 버튼 -->
@@ -53,64 +61,75 @@
                 <span></span>
             </div>
         </div>
+
+        <div class="overlay" id="overlay"></div>
     </header>
 
-    <div class="overlay" id="overlay"></div>
+
 
     <!-- 메인 비주얼 -->
     <section id="main-visual" class="main-visual section">
         <div class="visual-content">
-            <h1>브루브루 카페</h1>
-            <p>당신만의 특별한 공간에서 완벽한 커피를</p>
+            <h1>카페 <span class="highlight-brand">브루브루</span> </h1>
+            <p>모두를 위한 공간, 브루브루에선 가능합니다</p>
             <a href="#intro" class="cta-button">카페 둘러보기</a>
         </div>
     </section>
 
 
-    <!-- 소개 섹션 -->
-    <section id="intro" class="intro-section section">
-        <div class="container">
-            <h2 class="section-title">브루브루를 소개합니다</h2>
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- 카드 1: 카페 전반 분위기 -->
-                    <div class="carousel-card">
-                        <div class="card-image">카페 분위기 이미지</div>
-                        <h3>편안하고 아늑한 분위기</h3>
-                        <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. 혼자만의 시간이 필요할 때, 친구들과 수다를 떨고 싶을 때, 집중해서
-                            일하고 싶을 때 - 당신이 원하는 바로 그 분위기를 찾으실 수 있습니다.</p>
-                    </div>
+<section id="intro" class="intro-section">
+   <div class="container">
+       <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
+      
+       <div id="introCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+           <div class="carousel-indicators">
+               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+           </div>
 
-                    <!-- 카드 2: 카페 메뉴 전반 -->
-                    <div class="carousel-card">
-                        <div class="card-image">카페 메뉴 이미지</div>
-                        <h3>정성 가득한 프리미엄 메뉴</h3>
-                        <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피로 만든 메뉴들이 여러분의 미각을 만족시켜 드립니다. 시즌 한정
-                            메뉴도 놓치지 마세요!</p>
-                    </div>
 
-                    <!-- 카드 3: 카페 위치 -->
-                    <div class="carousel-card">
-                        <div class="card-image">카페 위치 이미지</div>
-                        <h3>접근성 좋은 최적의 위치</h3>
-                        <p>지하철역에서 도보 3분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다. 넓은 주차공간과 함께 대중교통으로도 편리하게 방문하실 수 있어, 일상 속에서 언제든지
-                            특별한 휴식을 즐기실 수 있습니다.</p>
-                    </div>
-                </div>
-            </div>
+           <div class="carousel-inner">
+               <div class="carousel-item active">
+                   <div class="carousel-card">
+                       <img src="./img/1.png" class="d-block w-100" alt="카페 분위기 이미지">
+                       <h3>모두에게 딱 맞춘 하루</h3>
+                       <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. </p>
+                   </div>
+               </div>
 
-            <div class="carousel-controls">
-                <button class="carousel-btn" onclick="previousSlide()">← 이전</button>
-                <button class="carousel-btn" onclick="nextSlide()">다음 →</button>
-            </div>
 
-            <div class="carousel-indicators">
-                <span class="indicator active" onclick="currentSlide(1)"></span>
-                <span class="indicator" onclick="currentSlide(2)"></span>
-                <span class="indicator" onclick="currentSlide(3)"></span>
-            </div>
-        </div>
-    </section>
+               <div class="carousel-item">
+                   <div class="carousel-card">
+                       <img src="./img/2.jpg" class="d-block w-100" alt="카페 메뉴 이미지">
+                       <h3>정성 가득한 프리미엄 메뉴</h3>
+                       <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피 </p>
+                   </div>
+               </div>
+
+
+               <div class="carousel-item">
+                   <div class="carousel-card">
+                       <img src="./img/33.png" class="d-block w-100" alt="카페 위치 이미지">
+                       <h3>접근성 좋은 최적의 위치</h3>
+                       <p>송파나루역 4번 출구에서 도보 2분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다.</p>
+                   </div>
+               </div>
+           </div>
+
+
+           <button class="carousel-control-prev" type="button" data-bs-target="#introCarousel" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+           </button>
+           <button class="carousel-control-next" type="button" data-bs-target="#introCarousel" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+           </button>
+       </div>
+   </div>
+</section>
+
 
 
     <!-- 상세 섹션 -->
@@ -118,38 +137,34 @@
         <div class="container">
             <h2 class="section-title">층별 공간 안내</h2>
 
-            <!-- 상세 섹션 1: 2층 -->
             <div class="detail-item">
                 <div class="detail-content">
                     <h3>2층 - 자유로운 소통 공간</h3>
+                    <img src="./img/4.png" alt="2층 공간 이미지">
                     <p>친구들과의 즐거운 수다, 가족과의 따뜻한 시간을 위한 공간입니다. 넓고 개방적인 구조로 자유로운 분위기 속에서 편안하게 대화를 나누실 수 있습니다. 큰 테이블과 소파석이
                         마련되어 있어 단체 모임이나 캐주얼한 만남에 최적화된 공간입니다.</p>
                 </div>
-                <div class="detail-image">2층 공간 이미지</div>
             </div>
 
-            <!-- 상세 섹션 2: 1층 -->
             <div class="detail-item">
                 <div class="detail-content">
                     <h3>1층 - 리프레시 공간</h3>
+                    <img src="./img/5.jpg" alt="1층 공간 이미지">
                     <p>잠깐의 휴식과 재충전이 필요할 때 찾는 공간입니다. 바쁜 일상 중 잠시 들러 맛있는 커피 한 잔으로 기분을 전환하고 싶을 때, 가벼운 미팅이나 간단한 업무 처리가 필요할 때
                         이용하기 좋습니다. 밝고 활기찬 분위기로 에너지를 충전해보세요.</p>
                 </div>
-                <div class="detail-image">1층 공간 이미지</div>
             </div>
 
-            <!-- 상세 섹션 3: B1층 -->
             <div class="detail-item">
                 <div class="detail-content">
                     <h3>B1층 - 완전한 몰입 공간</h3>
+                    <img src="./img/6.png" alt="B1층 공간 이미지">
                     <p>집중이 필요한 업무나 스터디를 위한 조용하고 아늑한 공간입니다. 개인 좌석과 스터디 룸이 구비되어 있어 방해받지 않고 온전히 자신만의 시간에 몰입할 수 있습니다. 조용한
                         음악과 함께 최고의 집중 환경을 제공합니다.</p>
                 </div>
-                <div class="detail-image">B1층 공간 이미지</div>
             </div>
         </div>
     </section>
-
 
     <!-- 푸터 -->
     <footer id="footer" class="footer section">
@@ -179,7 +194,5 @@
     </footer>
     <!-- Js 파일 불러오기 -->
     <script src="js/main.js"></script>
-    <script src="js/jswork.js"></script>
 </body>
-
 </html>
