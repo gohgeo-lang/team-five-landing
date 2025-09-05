@@ -141,6 +141,6 @@
     }
 
     #introCarousel {
-        max-width: 100%; 
+        max-width: 100%; /* 모바일에서는 캐러셀이 화면에 꽉 차도록 설정 */
     }
 }
