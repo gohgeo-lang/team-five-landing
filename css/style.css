@@ -359,18 +359,3 @@ button {
     }
 }
 
-/* transform 여러 효과 적용 가능 , 모바일에서는 사용 안함
-rotateX(-180deg) -> rotateX(0)
-사용시 적당한 값 찾을 필요있음 */
-@media (min-width: 768px) {
-    .section {
-        opacity: 0;
-        transform: translateX(-200px);
-        transition: all 1s ease;
-    }
-
-    .section.show {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
