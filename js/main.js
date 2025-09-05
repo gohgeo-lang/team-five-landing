@@ -23,70 +23,56 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("active");
     });
 });
-// 사이드 네비게이션
-const sections = document.querySelectorAll("section"); // footer 제외
-const navDots = document.querySelectorAll(".scroll-nav a");
+// =====================
+// 사이드 스크롤 인디케이터
+// =====================
+(function(){
+  const sections = Array.from(document.querySelectorAll('section'));
+  const dotsContainer = document.getElementById('dotsContainer');
+  const progressFill = document.getElementById('progressFill');
 
-window.addEventListener("scroll", () => {
-  let current = "";
+  // 섹션별 dot 자동 생성
+  sections.forEach((sec, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.type = 'button';
+    dot.dataset.target = sec.id;
+    dot.setAttribute('aria-label', `${sec.id} 이동`);
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 150;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.textContent = sec.querySelector('h2,h1')?.textContent || `Section ${idx+1}`;
 
-  navDots.forEach(dot => {
-    dot.classList.remove("active");
-    if (dot.getAttribute("href") === `#${current}`) {
-      dot.classList.add("active");
-    }
-  });
-});
+    dotsContainer.appendChild(dot);
+    dotsContainer.appendChild(label);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section:not(#footer)");
-  const progressFill = document.querySelector(".progress-fill");
-  const topNumber = document.querySelector(".section-number.top");
-  const bottomNumber = document.querySelector(".section-number.bottom");
-
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // 섹션 시작 기준 누적 높이 계산
-    let totalHeight = 0;
-    sections.forEach(sec => totalHeight += sec.offsetHeight);
-
-    let filledHeight = 0;
-    let currentSectionIndex = 0;
-
-    sections.forEach((section, index) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      if (scrollY + windowHeight / 2 >= sectionTop) {
-        currentSectionIndex = index;
-        filledHeight = 0;
-
-        // 이전 섹션 누적
-        for (let i = 0; i < index; i++) {
-          filledHeight += sections[i].offsetHeight;
-        }
-
-        // 현재 섹션에서 진행된 높이
-        filledHeight += Math.min(scrollY - sectionTop + windowHeight/2, sectionHeight);
-      }
+    dot.addEventListener('click', () => {
+      document.getElementById(dot.dataset.target)
+              .scrollIntoView({behavior:'smooth'});
     });
-
-    // 게이지 높이 % 계산
-    const fillPercent = (filledHeight / totalHeight) * 100;
-    progressFill.style.height = `${fillPercent}%`;
-
-    // 섹션 번호 업데이트
-    const sectionNumber = String(currentSectionIndex + 1).padStart(2, '0');
-    topNumber.textContent = sectionNumber;
-    bottomNumber.textContent = sectionNumber;
   });
-});
+
+  const dots = Array.from(document.querySelectorAll('.dot'));
+
+  function updateOnScroll(){
+    const viewportHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight - viewportHeight;
+    const scrollTop = window.scrollY || window.pageYOffset;
+    const percent = docHeight <= 0 ? 0 : (scrollTop / docHeight) * 100;
+    progressFill.style.height = percent + '%';
+
+    const centerY = scrollTop + viewportHeight/2;
+    let activeIndex = 0;
+    sections.forEach((sec, i) => {
+      const rect = sec.getBoundingClientRect();
+      const top = rect.top + scrollTop;
+      const bottom = top + rect.height;
+      if(centerY >= top && centerY < bottom) activeIndex = i;
+    });
+    dots.forEach((d,i)=> d.classList.toggle('active', i===activeIndex));
+  }
+
+  updateOnScroll();
+  window.addEventListener('scroll', () => requestAnimationFrame(updateOnScroll), {passive:true});
+  window.addEventListener('resize', updateOnScroll);
+})();
