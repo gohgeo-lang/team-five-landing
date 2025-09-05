@@ -46,11 +46,12 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
     z-index: 999;
     background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: height 0.3s, background 0.3s;
 }
@@ -76,7 +77,13 @@ button {
     font-size: 1.8rem;
     font-weight: 700;
     color: #5a3e36;
+    letter-spacing: -2px;
     margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 /* 네비게이션 */
@@ -88,28 +95,51 @@ button {
     padding: 0 20px;
 }
 
-/* PC에서는 항상 보임 */
+/* PC용 가로메뉴바 */
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 40px;
-    margin-right: 10px;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
     height: 100%;
+    background: transparent;
+    position: static;
+    /* 고정 해제 */
+    flex-direction: row;
+    box-shadow: none;
 }
 
-.nav-menu li {
-    position: relative;
+.nav-menu .mobile-only {
+    display: none;
+    /* PC에서는 안 보임 */
 }
+
+/* PC에서는 경계선 X */
+.nav-menu li {
+    border: none;
+}
+
 
 .nav-link {
-    text-decoration: none;
-    font-size: 1.1rem;
+    position: relative;
+    padding: 8px 14px;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: #333;
-    transition: color 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    background: #5a3e36;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
 }
 
 .nav-link:hover {
-    color: #5a3e36;
+    color: #6c5954;
 }
 
 .nav-link::after {
@@ -120,7 +150,7 @@ button {
     width: 0;
     height: 2px;
     background: #5a3e36;
-    transition: width 0.3s;
+    transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
@@ -152,6 +182,7 @@ button {
     margin-left: 20px;
     flex-grow: 1;
     max-width: 400px;
+    overflow: hidden;
 }
 
 .search-box input {
@@ -174,7 +205,7 @@ button {
     border: none;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,22 +354,71 @@ button {
 
     .nav-menu {
         position: fixed;
-        top: 0px;
-        height: calc(100vh);
+        top: 0;
         right: -70%;
         width: 70%;
-        background: rgba(255, 255, 255, 0.95);
+        height: 100vh;
+        background: #fff;
         flex-direction: column;
         padding: 20px;
-        gap: 20px;
+        gap: 0;
+        /* 간격은 li에서 */
         transition: right 0.3s ease;
         margin: 0;
         z-index: 1000;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid #f2f2f2;
     }
 
     .nav-menu.active {
         right: 0;
     }
+
+    /* 모바일 전용 다시 표시 */
+    .nav-menu .mobile-only {
+        display: block;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 0;
+        font-size: 1rem;
+        color: #333;
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        background: #fafafa;
+        border-radius: 6px;
+        padding-left: 8px;
+        color: #5a3e36;
+    }
+
+    /* 브랜드 헤더 */
+    .menu-header {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .menu-header h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #5a3e36;
+    }
+
+    .menu-header .slogan {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
 
     .overlay {
         position: fixed;
@@ -356,21 +436,5 @@ button {
     .overlay.active {
         opacity: 1;
         visibility: visible;
-    }
-}
-
-/* transform 여러 효과 적용 가능 , 모바일에서는 사용 안함
-rotateX(-180deg) -> rotateX(0)
-사용시 적당한 값 찾을 필요있음 */
-@media (min-width: 768px) {
-    .section {
-        opacity: 0;
-        transform: translateX(-200px);
-        transition: all 1s ease;
-    }
-
-    .section.show {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
