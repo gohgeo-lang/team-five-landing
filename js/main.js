@@ -23,46 +23,49 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.remove("active");
   });
 
-  // 모바일 사이즈에서는 애니메이션 막아 놓음
-  if (window.innerWidth > 768) {
-    window.addEventListener(
-      "wheel",
-      (event) => {
-        event.preventDefault();
-      },
-      { passive: false }
-    );
-
+  (function () {
     const sections = document.querySelectorAll(".section");
     let currentIndex = 0;
     let isScrolling = false;
     let wheelDelta = 0;
 
-    // IntersectionObserver: fade-in/out + currentIndex 갱신
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const sectionIndex = Array.from(sections).indexOf(entry.target);
-
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            currentIndex = sectionIndex; // 현재 화면에 보이는 섹션 갱신
+            currentIndex = sectionIndex;
           } else {
             entry.target.classList.remove("show");
           }
         });
       },
-      { threshold: 0.3 } // 화면 30% 이상 섹션이 들어왔을 때
+      { threshold: 0.3 }
     );
-
     sections.forEach((section) => observer.observe(section));
 
-    // Wheel 이벤트: 한 섹션씩 스크롤
-    window.addEventListener("wheel", (event) => {
-      wheelDelta += event.deltaY;
+    // 데스크톱 전용 스크롤 초기화
+    function initDesktopScroll() {
+      if (window.innerWidth <= 768) return; // 모바일이면 실행 안 함
 
-      // threshold를 상황에 맞게 낮추면 트랙패드에서도 자연스럽게 동작
-      if (!isScrolling && Math.abs(wheelDelta) > 50) {
+      // 기본 스크롤 기능 막기
+      window.addEventListener("wheel", preventDefaultWheel, { passive: false });
+
+      // 한 섹션씩 스크롤
+      window.addEventListener("wheel", handleWheelDesktop);
+    }
+
+    // 데스크톱용 wheel preventDefault
+    function preventDefaultWheel(e) {
+      e.preventDefault();
+    }
+
+    // 데스크톱용 섹션 스크롤
+    function handleWheelDesktop(e) {
+      wheelDelta += e.deltaY;
+
+      if (!isScrolling && Math.abs(wheelDelta) > 15) {
         isScrolling = true;
 
         if (wheelDelta > 0 && currentIndex < sections.length - 1) {
@@ -71,19 +74,30 @@ document.addEventListener("DOMContentLoaded", () => {
           currentIndex--;
         }
 
-        // 현재 섹션으로 부드럽게 스크롤
         sections[currentIndex].scrollIntoView({ behavior: "smooth" });
-
-        // wheelDelta 초기화
         wheelDelta = 0;
 
-        // 잠금 시간 (다음 스크롤 입력 방지)
         setTimeout(() => {
           isScrolling = false;
         }, 800);
       }
+    }
+
+    // 창 크기 변경 시 데스크톱 스크롤 적용 여부 재검토
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 768) {
+        // 모바일일 경우 이벤트 제거
+        window.removeEventListener("wheel", preventDefaultWheel);
+        window.removeEventListener("wheel", handleWheelDesktop);
+      } else {
+        // 데스크톱일 경우 이벤트 등록
+        initDesktopScroll();
+      }
     });
-  }
+
+    // 초기 실행
+    initDesktopScroll();
+  })();
 });
 
 // 모달 및 팝업 사용할 경우 필요한 부분 주석 해제
