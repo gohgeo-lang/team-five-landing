@@ -5,7 +5,8 @@ const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 const overlay = document.getElementById("overlay");
 
-let lock = false; // 잠금 플래그
+/* 화면 클릭 시 작동되는 헤더토글 잠금용 변수 */
+let lock = false;
 
 // 초기 상태
 function initHeader() {
@@ -33,13 +34,14 @@ window.addEventListener("scroll", () => {
 
 // 화면 클릭 → 헤더 토글
 document.addEventListener("click", (e) => {
-    if (lock || header.classList.contains("fixed")) return;
+    if (lock || header.classList.contains("fixed")) return; 
 
-    // 햄버거, 메뉴, 검색창 클릭 시 무시
+    // 햄버거, 메뉴, 검색창, 캐러셀버튼 클릭 시 무시
     if (
         e.target.closest("#hamburger") ||
         e.target.closest("#navMenu") ||
-        e.target.closest(".search-box")
+        e.target.closest(".search-box") ||
+        e.target.closest("#introCarousel")
     )
         return;
 
