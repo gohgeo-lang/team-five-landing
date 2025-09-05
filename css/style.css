@@ -56,7 +56,7 @@
        backdrop-filter: blur(10px);
        /* 유리같은 블러 효과 */
        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-       transition: height 0.3s, background 0.3s;
+       transition: height 0.3s, back-ground 0.3s;
    }
 
    /* 스크롤 시 헤더 축소 */
@@ -196,7 +196,7 @@
        border-radius: 50%;
        background: rgba(255, 255, 255, 0.5);
        display: block;
-       transition: background 0.3s, transform 0.3s;
+       transition: backg-round 0.3s, transform 0.3s;
    }
 
    .scroll-nav a.active {
@@ -237,5 +237,3 @@
            margin-top: 15px;
        }
    }
-
-   </style><link href="<https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css>" rel="stylesheet"><link rel="stylesheet" href="css/style.css">

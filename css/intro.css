@@ -1,3 +1,9 @@
+.intro-section .highlight-text {
+    color: #FF5F1F;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 .intro-section {
     height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
     display: flex; /* 내부 컨테이너를 중앙 정렬하기 위해 flex 사용 */
@@ -81,8 +87,8 @@
     transition: background-color 0.3s, opacity 0.3s;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
+.intro-section .carousel-control-prev:hover,
+.intro-section .carousel-control-next:hover {
     background-color: #ff5f1f;
     opacity: 1;
 }
@@ -119,10 +125,22 @@
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
 }
 
-/* p 태그에 텍스트 그림자 추가 */
+
 .carousel-card p {
     font-size: 1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9); /* 글자색을 좀 더 선명하게 조정 */
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.7); /* 그림자 효과 */
+}
+
+/* --- 모바일 반응형 스타일 --- */
+@media (max-width: 768px) {
+    .intro-section {
+        height: auto; 
+        padding: 5rem 1rem; 
+    }
+
+    #introCarousel {
+        max-width: 100%; 
+    }
 }
