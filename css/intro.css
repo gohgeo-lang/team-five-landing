@@ -15,6 +15,7 @@
    
    /* 캐러셀 컨테이너 및 카드 중앙 정렬 */
 .intro-section .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +46,6 @@
 .carousel-image-container {
     width: 100%;
     height: 300px; /* 원하는 높이로 조절하세요 (예: 300px) */
-    position: relative;
     overflow: hidden; /* 컨테이너를 넘어가는 이미지를 자름 */
     border-radius: 8px;
     margin-bottom: 1.5rem;

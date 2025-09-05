@@ -108,7 +108,7 @@ button {
     box-shadow: none;
     right: auto;
     width: auto;
-    z-index: 1500;
+    z-index: 2000;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -166,7 +166,7 @@ button {
     flex-direction: column;
     cursor: pointer;
     margin-left: 20px;
-    z-index: 1200;
+    z-index: 1500;
 }
 
 .hamburger span {
@@ -176,52 +176,6 @@ button {
     margin: 4px 0;
     border-radius: 3px;
     transition: 0.3s;
-}
-
-/* 검색창 */
-.search-box {
-    display: flex;
-    align-items: stretch;
-    margin-left: 20px;
-    margin-right: 20px;
-    /* 햄버거와 간격 */
-    flex-grow: 1;
-    max-width: 400px;
-    overflow: hidden;
-}
-
-.search-box input {
-    flex: 1;
-    min-width: 0;
-    padding: 10px 14px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 0.95rem;
-}
-
-.search-box .search-btn {
-    flex-shrink: 0;
-    width: 40px;
-    height: 100%;
-    background: #5a3e36;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-box .search-btn:hover {
-    background: #8b5e4f;
-}
-
-.search-box .search-btn i {
-    font-size: 1.2rem;
 }
 
 /* 섹션 배경 */
@@ -310,9 +264,10 @@ button {
 /* 오버레이 (PC 기본: 안 보임) */
 .overlay {
     display: none;
+    z-index: 1000;
 }
 
-/* ✅ 모바일 전용 스타일 */
+/* 모바일 전용 스타일 */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
