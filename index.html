@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 스타일 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 부트스트랩 링크 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <title>우리 팀 프로젝트</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -18,19 +25,52 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo">BROO BROO</div>
+
+            <!-- 검색창 -->
+            <div class="search-box">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <button class="search-btn">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
             <nav>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="navMenu">
+                    <!-- 모바일 전용 -->
+                    <li class="mobile-only menu-header">
+                        <h3>BROO BROO</h3>
+                        <p class="slogan">당신만의 특별한 공간에서 완벽한 커피를</p>
+                    </li>
+
+                    <!-- 공통 메뉴 -->
                     <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
                     <li><a href="#intro" class="nav-link">소개 섹션</a></li>
                     <li><a href="#details" class="nav-link">상세 섹션</a></li>
+                    <li><a href="#reserve" class="nav-link reserve-link">예약하기</a></li>
+                    <li><a href="#events" class="nav-link">이벤트</a></li>
+
+                    <!-- 모바일 전용 하단 -->
+                    <li class="mobile-only divider"></li>
+                    <li class="mobile-only"><a href="#contact" class="nav-link">고객센터</a></li>
+                    <li class="mobile-only"><a href="#location" class="nav-link">오시는 길</a></li>
                 </ul>
+
             </nav>
+
+
+            <!-- 햄버거 버튼 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
+    <div class="overlay" id="overlay"></div>
 
     <!-- 메인 비주얼 -->
-    <section id="main-visual" class="main-visual">
+    <section id="main-visual" class="main-visual section">
         <div class="visual-content">
             <h1>카페 <span class="highlight-brand">브루브루</span> </h1>
             <p>모두를 위한 공간, 브루브루에선 가능합니다</p>
@@ -40,16 +80,18 @@
 
 
     <!-- 소개 섹션 -->
-<section id="intro" class="intro-section">
-    <div class="container">
-        <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
-        
-        <div id="introCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+    <section id="intro" class="intro-section section">
+        <div class="container">
+            <h2 class="section-title">브루브루를 소개합니다</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- 카드 1: 카페 전반 분위기 -->
+                    <div class="carousel-card">
+                        <div class="card-image">카페 분위기 이미지</div>
+                        <h3>편안하고 아늑한 분위기</h3>
+                        <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. 혼자만의 시간이 필요할 때, 친구들과 수다를 떨고 싶을 때, 집중해서
+                            일하고 싶을 때 - 당신이 원하는 바로 그 분위기를 찾으실 수 있습니다.</p>
+                    </div>
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -91,9 +133,9 @@
 
 
     <!-- 상세 섹션 -->
-<section id="details" class="detail-section">
-    <div class="container">
-        <h2 class="section-title">층별 공간 안내</h2>
+    <section id="details" class="detail-section section">
+        <div class="container">
+            <h2 class="section-title">층별 공간 안내</h2>
 
         <div class="detail-item">
             <div class="detail-content">
@@ -123,10 +165,9 @@
         </div>
     </div>
 </section>
- 
 
     <!-- 푸터 -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer section">
         <div class="footer-content">
             <h3>브루브루 카페</h3>
             <div class="footer-info">
@@ -151,7 +192,7 @@
             </div>
         </div>
     </footer>
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Js 파일 불러오기 -->
+    <script src="js/main.js"></script>
 </body>
 </html>
