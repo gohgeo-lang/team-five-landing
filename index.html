@@ -9,6 +9,8 @@
 
     <!-- 부트스트랩 링크 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <title>우리 팀 프로젝트</title>
 
 </head>
@@ -19,20 +21,32 @@
         <div class="nav-container">
             <div class="logo">BROO BROO</div>
 
+            <!-- 검색창 -->
+            <div class="search-box">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <button class="search-btn">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
+            <!-- 네비메뉴들 -->
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
+                    <li><a href="#intro" class="nav-link">소개 섹션</a></li>
+                    <li><a href="#details" class="nav-link">상세 섹션</a></li>
+                    <li><a href="#reserve" class="nav-link reserve-link">예약하기</a></li>
+                    <li><a href="#login" class="nav-link">로그인</a></li>
+                    <li><a href="#signup" class="nav-link">회원가입</a></li>
+                </ul>
+            </nav>
+
             <!-- 햄버거 버튼 -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
-                    <li><a href="#intro" class="nav-link">소개 섹션</a></li>
-                    <li><a href="#details" class="nav-link">상세 섹션</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 

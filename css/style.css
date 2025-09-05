@@ -145,6 +145,50 @@ button {
     transition: 0.3s;
 }
 
+/*검색창*/
+.search-box {
+    display: flex;
+    align-items: stretch;
+    margin-left: 20px;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.search-box .search-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 100%;
+    background: #5a3e36;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box .search-btn:hover {
+    background: #8b5e4f;
+}
+
+.search-box .search-btn i {
+    font-size: 1.2rem;
+    /* 아이콘 크기 조절 */
+}
+
 /* 섹션 배경 */
 .main-visual {
     background-color: #dfd8c8;
@@ -230,6 +274,23 @@ button {
 
 /* 모바일 반응형 스타일 */
 @media (max-width: 768px) {
+
+    .search-box {
+        flex-grow: 0;
+        max-width: 180px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .search-box input {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
+
+    .search-box .search-btn {
+        padding: 4px 10px;
+    }
+
     section {
         font-size: 1.2rem;
         padding: 15px;

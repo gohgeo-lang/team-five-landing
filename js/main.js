@@ -36,6 +36,14 @@ document.addEventListener("click", (e) => {
     if (lock || header.classList.contains("fixed")) return;
     if (e.target.closest("#hamburger") || e.target.closest("#navMenu")) return;
 
+
+    if (
+        e.target.closest("#hamburger") || 
+        e.target.closest("#navMenu") || 
+        e.target.closest(".search-box")  
+    ) return;
+
+
     header.classList.toggle("show");
     header.classList.toggle("hidden");
 });
