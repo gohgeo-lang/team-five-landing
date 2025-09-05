@@ -18,6 +18,7 @@
 
 /* 캐러셀 전체 사이즈 조정 및 중앙 배치 */
 #introCarousel {
+    position: relative;
     max-width: 700px; /* 캐러셀 최대 너비 지정 */
     width: 90%;
     margin-top: 2rem;
@@ -68,6 +69,10 @@
 /* 🥕 작고 단순한 캐러셀 버튼으로 대체 */
 .carousel-control-prev,
 .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
     width: 3rem; /* 버튼 너비 축소 */
     height: 3rem; /* 버튼 높이 축소 */
     border-radius: 50%; /* 원형 버튼 */
@@ -78,7 +83,7 @@
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #ff5f1f;
     opacity: 1;
 }
 
@@ -106,3 +111,18 @@
     background-color: #fff; /* 활성화 색상 */
 }
 
+.carousel-card h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff; /* 글자색을 흰색으로 명확히 지정 */
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
+}
+
+/* p 태그에 텍스트 그림자 추가 */
+.carousel-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9); /* 글자색을 좀 더 선명하게 조정 */
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.7); /* 그림자 효과 */
+}
