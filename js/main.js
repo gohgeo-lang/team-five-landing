@@ -14,11 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("active");
       overlay.classList.remove("active");
-
-      // 부드러운 이동, 링크요소에 data-index 추가해줘야 됨. 예) data-index="0"
-      // 효과가 있는지 잘 모르겠음, 효과 없으면 지워도 되요
-      const index = parseInt(link.dataset.index, 10);
-      //scrollToSection(index);
     });
   });
 
@@ -28,71 +23,67 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.remove("active");
   });
 
-  // 버튼 클릭으로 섹션 이동시 부드럽게 이동시키고자 할 때 버튼 이벤트에 등록하면 됨
-  function scrollToSection(index) {
-    console.log("sections size", sections.length);
-    sections[index].scrollIntoView({ behavior: "smooth" });
-  }
-  // 한 섹션씩 스크롤
-  const sections = document.querySelectorAll(".section");
-  let currentIndex = 0;
-  let isScrolling = false;
-
-  // 모바일 사이즈에서는 막아 놓음
+  // 모바일 사이즈에서는 애니메이션 막아 놓음
   if (window.innerWidth > 768) {
-    window.addEventListener("wheel", (event) => {
-      if (isScrolling) return; // 중복 실행 방지
-      isScrolling = true;
+    window.addEventListener(
+      "wheel",
+      (event) => {
+        event.preventDefault();
+      },
+      { passive: false }
+    );
 
-      console.log("section currentIndex", currentIndex);
-      if (event.deltaY > 0) {
-        // 아래로 스크롤
-        if (currentIndex < sections.length - 1) {
+    const sections = document.querySelectorAll(".section");
+    let currentIndex = 0;
+    let isScrolling = false;
+    let wheelDelta = 0;
+
+    // IntersectionObserver: fade-in/out + currentIndex 갱신
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const sectionIndex = Array.from(sections).indexOf(entry.target);
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            currentIndex = sectionIndex; // 현재 화면에 보이는 섹션 갱신
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      { threshold: 0.3 } // 화면 30% 이상 섹션이 들어왔을 때
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Wheel 이벤트: 한 섹션씩 스크롤
+    window.addEventListener("wheel", (event) => {
+      wheelDelta += event.deltaY;
+
+      // threshold를 상황에 맞게 낮추면 트랙패드에서도 자연스럽게 동작
+      if (!isScrolling && Math.abs(wheelDelta) > 50) {
+        isScrolling = true;
+
+        if (wheelDelta > 0 && currentIndex < sections.length - 1) {
           currentIndex++;
-        }
-      } else {
-        // 위로 스크롤
-        if (currentIndex > 0) {
+        } else if (wheelDelta < 0 && currentIndex > 0) {
           currentIndex--;
         }
+
+        // 현재 섹션으로 부드럽게 스크롤
+        sections[currentIndex].scrollIntoView({ behavior: "smooth" });
+
+        // wheelDelta 초기화
+        wheelDelta = 0;
+
+        // 잠금 시간 (다음 스크롤 입력 방지)
+        setTimeout(() => {
+          isScrolling = false;
+        }, 800);
       }
-
-      sections[currentIndex].scrollIntoView({
-        behavior: "smooth",
-      });
-
-      setTimeout(() => {
-        isScrolling = false;
-      }, 1000); // 스크롤 잠금 시간
     });
   }
-
-  /* 스크롤 시 fade-in 효과 사용하기 위해서 CSS에 추가 필요 */
-  // .scroll-section {
-  //     opacity: 0;
-  //     transform: translateY(50px); // 필셀값 조절해서 적당한 값 찾을 필요있음
-  //     transition: all 0.8s ease;
-  // }
-  // .scroll-section.show {
-  //     opacity: 1;
-  //     transform: translateY(0); // 필셀값 조절해서 적당한 값 찾을 필요있음
-  // }
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show"); // 화면 안 → fade-in
-        } else {
-          entry.target.classList.remove("show"); // 화면 밖 → fade-out
-        }
-      });
-    },
-    { threshold: 0.3 } // 섹션의 몇 프로가 화면에 들어왔을 때 보이기 시작할지
-  );
-
-  document
-    .querySelectorAll(".section")
-    .forEach((element) => observer.observe(element));
 });
 
 // 모달 및 팝업 사용할 경우 필요한 부분 주석 해제
