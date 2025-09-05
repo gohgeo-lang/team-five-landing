@@ -370,6 +370,7 @@ button {
     }
 
     .nav-menu li {
+        padding: 12px 0;
         width: 100%;
         border-bottom: 1px solid #f2f2f2;
     }
@@ -386,18 +387,32 @@ button {
     .nav-link {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 14px 0;
-        font-size: 1rem;
+        gap: 12px;
+        padding: 8px 4px;
+        font-size: 1.05rem;
+        font-weight: 500;
         color: #333;
         width: 100%;
+        transition: all 0.2s ease;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+        color: #5a3e36;
+        /* 브랜드 색상 */
     }
 
     .nav-link:hover {
         background: #fafafa;
         border-radius: 6px;
-        padding-left: 8px;
+        padding-left: 12px;
         color: #5a3e36;
+    }
+
+    /* 메뉴 그룹 간격 */
+    .nav-menu .divider {
+        border-bottom: 2px solid #ddd;
+        margin: 12px 0;
     }
 
     /* 브랜드 헤더 */
