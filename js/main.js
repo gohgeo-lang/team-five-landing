@@ -1,51 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("navMenu");
-    const overlay = document.getElementById("overlay");
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+  const overlay = document.getElementById("overlay");
 
-    // 햄버거 클릭 시 메뉴 + 오버레이 토글
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        overlay.classList.toggle("active");
-    });
-
-    // 메뉴 링크 클릭하면 닫기
-    document.querySelectorAll(".nav-link").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            overlay.classList.remove("active");
-        });
-    });
-
-    // 오버레이 클릭해도 닫기
-    overlay.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        overlay.classList.remove("active");
-    });
-});
-// 사이드 네비게이션
-const sections = document.querySelectorAll("section"); // footer 제외
-const navDots = document.querySelectorAll(".scroll-nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 150;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
+  // 햄버거 클릭 시 메뉴 + 오버레이 토글
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
   });
 
-  navDots.forEach(dot => {
-    dot.classList.remove("active");
-    if (dot.getAttribute("href") === `#${current}`) {
-      dot.classList.add("active");
-    }
+  // 메뉴 링크 클릭하면 닫기
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      overlay.classList.remove("active");
+    });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+  // 오버레이 클릭해도 닫기
+  overlay.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // 📌 스크롤 게이지
   const sections = document.querySelectorAll("section:not(#footer)");
   const progressFill = document.querySelector(".progress-fill");
   const topNumber = document.querySelector(".section-number.top");
