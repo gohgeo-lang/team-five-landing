@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 부트스트랩 링크 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <title>모두를 위한 공간: 브루브루</title>
 
-    <title>우리 팀 프로젝트</title>
+    <!-- 부트스트랩 링크(기본css, icon)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- 프로젝트 css 링크(기능별로 구현하고 최신화해주세요.)-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- 무료 지도 API -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main-visual.css">
     <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="css/details.css">
-    <link rel="stylesheet" href="css/jswork.css">
+    <link rel="stylesheet" href="css/jswork.css">    
+    <link rel="stylesheet" href="css/header.css">
+
 </head>
 
 <body>
@@ -30,25 +33,38 @@
 
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <!-- 모바일 전용 -->
+                    <!-- 모바일 전용 헤더 -->
                     <li class="mobile-only menu-header">
-                        <h3>BROO BROO</h3>
-                        <p class="slogan">당신만의 특별한 공간에서 완벽한 커피를</p>
+                        <div class="menu-header-content">
+                            <div class="menu-text">
+                                <h3 class="fw-bold">BROO BROO</h3>
+                                <p class="slogan">모두를 위한 공간,<br>브루브루</p>
+                            </div>
+                            <img src="./img/logo.png" alt="브루브루 로고" class="menu-logo">
+                        </div>
                     </li>
 
-                    <!-- 공통 메뉴 -->
-                    <li><a href="#main-visual" class="nav-link">메인 비주얼</a></li>
-                    <li><a href="#intro" class="nav-link">소개 섹션</a></li>
-                    <li><a href="#details" class="nav-link">상세 섹션</a></li>
-                    <li><a href="#reserve" class="nav-link reserve-link">예약하기</a></li>
-                    <li><a href="#events" class="nav-link">이벤트</a></li>
+                    <!-- 그룹 1: 서비스 -->
+                    <li class="menu-group">
+                        <span class="menu-group-title mobile-only">서비스</span>
+                        <ul class="menu-sub">
+                            <li><a href="#main-visual" class="nav-link">Main</a></li>
+                            <li><a href="#intro" class="nav-link">About</a></li>
+                            <li><a href="#details" class="nav-link">Detail</a></li>
+                            <li><a href="#reserve" class="nav-link reserve-link">Pre-order</a></li>
+                            <li><a href="#events" class="nav-link">Event</a></li>
+                        </ul>
+                    </li>
 
-                    <!-- 모바일 전용 하단 -->
-                    <li class="mobile-only divider"></li>
-                    <li class="mobile-only"><a href="#contact" class="nav-link">고객센터</a></li>
-                    <li class="mobile-only"><a href="#location" class="nav-link">오시는 길</a></li>
+                    <!-- 그룹 2: 안내 (모바일 전용) -->
+                    <li class="menu-group mobile-only">
+                        <span class="menu-group-title">안내</span>
+                        <ul class="menu-sub">
+                            <li><a href="#contact" class="nav-link">고객센터</a></li>
+                            <li><a href="#location" class="nav-link">오시는 길</a></li>
+                        </ul>
+                    </li>
                 </ul>
-
             </nav>
 
             <!-- 햄버거 버튼 -->
@@ -63,7 +79,6 @@
     </header>
 
 
-
     <!-- 메인 비주얼 -->
     <section id="main-visual" class="main-visual section">
         <div class="visual-content">
@@ -74,7 +89,7 @@
     </section>
 
 
-    <section id="intro" class="intro-section section">
+    <section id="intro" class="intro-section">
         <div class="container">
             <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
 
@@ -203,11 +218,12 @@
         </div>
         </div>
     </footer>
-    <!-- Js 파일 불러오기 -->
-    <script src="js/main.js"></script>
+
+    <!-- Js 파일 불러오기(부트스트랩 & 프로젝트JS) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- 무료 지도 API -->
     <script src="js/jswork.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
