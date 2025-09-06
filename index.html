@@ -10,6 +10,7 @@
 
     <title>우리 팀 프로젝트</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- 무료 지도 API -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main-visual.css">
     <link rel="stylesheet" href="css/intro.css">
@@ -73,67 +74,72 @@
     </section>
 
 
-<section id="intro" class="intro-section">
-   <div class="container">
-       <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
-      
-       <div id="introCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-           <div class="carousel-indicators">
-               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-               <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-           </div>
+    <section id="intro" class="intro-section section">
+        <div class="container">
+            <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
+
+            <div id="introCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
 
 
-           <div class="carousel-inner">
-               <div class="carousel-item active">
-                   <div class="carousel-card">
-                       <img src="./img/1.png" class="d-block w-100" alt="카페 분위기 이미지">
-                       <h3>모두에게 딱 맞춘 하루</h3>
-                       <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. </p>
-                   </div>
-               </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-card">
+                            <img src="./img/1.png" class="d-block w-100" alt="카페 분위기 이미지">
+                            <h3>모두에게 딱 맞춘 하루</h3>
+                            <p>각 층마다 다른 콘셉트로 구성된 브루브루는 방문하시는 모든 분들께 최적의 공간을 제공합니다. </p>
+                        </div>
+                    </div>
 
 
-               <div class="carousel-item">
-                   <div class="carousel-card">
-                       <img src="./img/2.jpg" class="d-block w-100" alt="카페 메뉴 이미지">
-                       <h3>정성 가득한 프리미엄 메뉴</h3>
-                       <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피 </p>
-                   </div>
-               </div>
+                    <div class="carousel-item">
+                        <div class="carousel-card">
+                            <img src="./img/2.jpg" class="d-block w-100" alt="카페 메뉴 이미지">
+                            <h3>정성 가득한 프리미엄 메뉴</h3>
+                            <p>엄선된 원두로 추출한 다양한 커피 메뉴와 수제 디저트, 건강한 브런치까지. 브루브루만의 특별한 레시피 </p>
+                        </div>
+                    </div>
 
 
-               <div class="carousel-item">
-                   <div class="carousel-card">
-                       <img src="./img/33.png" class="d-block w-100" alt="카페 위치 이미지">
-                       <h3>접근성 좋은 최적의 위치</h3>
-                       <p>송파나루역 4번 출구에서 도보 2분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다.</p>
-                   </div>
-               </div>
-           </div>
+                    <div class="carousel-item">
+                        <div class="carousel-card">
+                            <img src="./img/33.png" class="d-block w-100" alt="카페 위치 이미지">
+                            <h3>접근성 좋은 최적의 위치</h3>
+                            <p>송파나루역 4번 출구에서 도보 2분 거리에 위치한 브루브루는 언제나 쉽게 찾아올 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
 
 
-           <button class="carousel-control-prev" type="button" data-bs-target="#introCarousel" data-bs-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Previous</span>
-           </button>
-           <button class="carousel-control-next" type="button" data-bs-target="#introCarousel" data-bs-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Next</span>
-           </button>
-       </div>
-   </div>
-</section>
+                <button class="carousel-control-prev" type="button" data-bs-target="#introCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#introCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
 
 
 
     <!-- 상세 섹션 -->
-    <section id="details" class="detail-section section">
+    <section id="details" class="detail-section">
         <div class="container">
             <h2 class="section-title">층별 공간 안내</h2>
 
-            <div class="detail-item">
+            <div class="detail-item section">
                 <div class="detail-content">
                     <h3>2층 - 자유로운 소통 공간</h3>
                     <img src="./img/4.png" alt="2층 공간 이미지">
@@ -142,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="detail-item">
+            <div class="detail-item section">
                 <div class="detail-content">
                     <h3>1층 - 리프레시 공간</h3>
                     <img src="./img/5.jpg" alt="1층 공간 이미지">
@@ -151,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="detail-item">
+            <div class="detail-item section">
                 <div class="detail-content">
                     <h3>B1층 - 완전한 몰입 공간</h3>
                     <img src="./img/6.png" alt="B1층 공간 이미지">
@@ -166,31 +172,42 @@
     <footer id="footer" class="footer section">
         <div class="footer-content">
             <h3>브루브루 카페</h3>
-            <div class="footer-info">
-                <div>
-                    <h4>운영시간</h4>
-                    <p>평일: 07:00 - 22:00<br>
-                        주말: 08:00 - 23:00</p>
+            <div class="footer-main">
+                <div class="footer-info">
+                    <div>
+                        <h4>운영시간</h4>
+                        <p>평일: 07:00 - 22:00<br>
+                            주말: 08:00 - 23:00</p>
+                    </div>
+                    <div>
+                        <h4>연락처</h4>
+                        <p>전화: 02-1234-5678<br>
+                            이메일: info@brewbrew.co.kr</p>
+                    </div>
+                    <div>
+                        <h4>주소</h4>
+                        <p>서울시 강남구 테헤란로<br>
+                            123번길 45 브루브루빌딩</p>
+                    </div>
                 </div>
-                <div>
-                    <h4>연락처</h4>
-                    <p>전화: 02-1234-5678<br>
-                        이메일: info@brewbrew.co.kr</p>
+
+                <div class="footer-map">
+                    <div id="map"></div>
                 </div>
-                <div>
-                    <h4>주소</h4>
-                    <p>서울시 강남구 테헤란로<br>
-                        123번길 45 브루브루빌딩</p>
+                <div class="footer-empty">
                 </div>
             </div>
-            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
-                <p>&copy; 2024 브루브루 카페. All rights reserved.</p>
-            </div>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
+            <p>&copy; 2024 브루브루 카페. All rights reserved.</p>
+        </div>
         </div>
     </footer>
     <!-- Js 파일 불러오기 -->
     <script src="js/main.js"></script>
-    <script src="js/jswork.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- 무료 지도 API -->
+    <script src="js/jswork.js"></script>
 </body>
+
 </html>

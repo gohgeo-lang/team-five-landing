@@ -1,4 +1,3 @@
-
 (function () {
   const sections = document.querySelectorAll(".section");
   let currentIndex = 0;
@@ -8,10 +7,9 @@
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const sectionIndex = Array.from(sections).indexOf(entry.target);
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
-          currentIndex = sectionIndex;
+          map.invalidateSize();
         } else {
           entry.target.classList.remove("show");
         }
@@ -19,6 +17,7 @@
     },
     { threshold: 0.3 }
   );
+
   sections.forEach((section) => observer.observe(section));
 
   // 데스크톱 전용 스크롤 초기화
@@ -81,8 +80,23 @@ const video = document.getElementById("bg-video");
 if (video) {
   //video.pause();
   //video.play();
-  if (video) video.play().catch(err => console.log("동영상 자동재생 실패", err));
+  if (video)
+    video.play().catch((err) => console.log("동영상 자동재생 실패", err));
 }
+
+const map = L.map("map").setView([37.509208, 127.113694], 16);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
+
+L.circle([37.509208, 127.113694], {
+  color: "red",
+  radius: 100,
+}).addTo(map);
+// 마커 추가
+const marker = L.marker([37.509208, 127.113694]).addTo(map);
+marker.bindPopup("<b>서울</b><br>여기는 브루브루입니다.").openPopup();
 
 // 모달 및 팝업 사용할 경우 필요한 부분 주석 해제
 /*
