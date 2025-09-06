@@ -12,18 +12,19 @@
 
     <!-- 프로젝트 css 링크(기능별로 구현하고 최신화해주세요.)-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- 무료 지도 API -->
+    <link rel="stylesheet" href="css/jswork.css">    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main-visual.css">
     <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="css/details.css">
-    <link rel="stylesheet" href="css/jswork.css">    
     <link rel="stylesheet" href="css/header.css">
 
 </head>
 
 <body>
+    <!-- 동영상 백그라운드 -->
     <video autoplay muted loop playsinline id="bg-video">
-        <source src="https://cdn.pixabay.com/video/2024/06/06/215484_large.mp4" type="video/mp4" />
+        <source src="https://cdn.pixabay.com/video/2018/07/02/17013-278400948_large.mp4" type="video/mp4" />
         브라우저가 video 태그를 지원하지 않습니다.
     </video>
     <!-- 헤더 -->
@@ -89,7 +90,7 @@
     </section>
 
 
-    <section id="intro" class="intro-section">
+    <section id="intro" class="intro-section section">
         <div class="container">
             <h2 class="section-title"><span class="highlight-text">브루브루</span>를 소개합니다</h2>
 
@@ -206,10 +207,9 @@
                     </div>
                 </div>
 
+                <!-- 지도 API 표시, 여기 있으면 이상해서 이동 필요 -->
                 <div class="footer-map">
                     <div id="map"></div>
-                </div>
-                <div class="footer-empty">
                 </div>
             </div>
         </div>

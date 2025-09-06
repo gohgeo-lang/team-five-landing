@@ -74,16 +74,23 @@
   initDesktopScroll();
 })();
 
+// 로고 애니메이션 
+// const logo = document.querySelector('.logo');
+// setInterval(() => {
+//   logo.style.transform = 'scale(1.2)';
+//   setTimeout(() => logo.style.transform = 'scale(0.8)', 300);
+// }, 1000);
+
 // 동영상을 배경으로
 const video = document.getElementById("bg-video");
 
 if (video) {
   //video.pause();
-  //video.play();
   if (video)
     video.play().catch((err) => console.log("동영상 자동재생 실패", err));
 }
 
+// 무료 지도 API 표시
 const map = L.map("map").setView([37.509208, 127.113694], 16);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -96,7 +103,7 @@ L.circle([37.509208, 127.113694], {
 }).addTo(map);
 // 마커 추가
 const marker = L.marker([37.509208, 127.113694]).addTo(map);
-marker.bindPopup("<b>서울</b><br>여기는 브루브루입니다.").openPopup();
+marker.bindPopup("❣️여기는 브루브루입니다.").openPopup();
 
 // 모달 및 팝업 사용할 경우 필요한 부분 주석 해제
 /*
@@ -141,3 +148,14 @@ btn.addEventListener("click", function () {
   );
 });
 */
+
+// 마우스 위치에 따라 변형
+// const card = document.querySelector('.detail-item');
+// card.addEventListener('mousemove', e => {
+//   const x = (window.innerWidth / 2 - e.pageX) / 25;
+//   const y = (window.innerHeight / 2 - e.pageY) / 25;
+//   card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+// });
+// card.addEventListener('mouseleave', () => {
+//   card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+// });
