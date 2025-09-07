@@ -36,7 +36,7 @@ window.addEventListener("scroll", () => {
 document.addEventListener("click", (e) => {
     if (lock || header.classList.contains("fixed")) return; 
 
-    // 햄버거, 메뉴, 검색창, 캐러셀버튼 클릭 시 무시
+    // 햄버거, 메뉴, 검색창, 캐러셀버튼 클릭 시 무시(잠금 조건들)
     if (
         e.target.closest("#hamburger") ||
         e.target.closest("#navMenu") ||
