@@ -4,6 +4,8 @@
   let isScrolling = false;
   let wheelDelta = 0;
 
+  console.log("sections:", sections);
+  
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -41,20 +43,27 @@
     wheelDelta += e.deltaY;
 
     if (!isScrolling && Math.abs(wheelDelta) > 15) {
-      isScrolling = true;
+      let moved = false;
 
       if (wheelDelta > 0 && currentIndex < sections.length - 1) {
         currentIndex++;
+        moved = true;
       } else if (wheelDelta < 0 && currentIndex > 0) {
         currentIndex--;
+        moved = true;
       }
 
-      sections[currentIndex].scrollIntoView({ behavior: "smooth" });
-      wheelDelta = 0;
+      if (moved) {
+        isScrolling = true;
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 800);
+        sections[currentIndex].scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 1000);
+      }
+
+      wheelDelta = 0;
     }
   }
 
@@ -74,7 +83,26 @@
   initDesktopScroll();
 })();
 
-// 로고 애니메이션 
+document.addEventListener("DOMContentLoaded", () => {
+  const visual = document.querySelector(".visual-content");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visual.classList.add("show");
+        } else {
+          visual.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(visual);
+});
+
+// 로고 애니메이션
 // const logo = document.querySelector('.logo');
 // setInterval(() => {
 //   logo.style.transform = 'scale(1.2)';
