@@ -8,8 +8,12 @@
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          currentIndex = Array.from(sections).indexOf(entry.target);
           entry.target.classList.add("show");
-          map.invalidateSize();
+
+          if (entry.target.id === "footer") {
+            map.invalidateSize();
+          }
         } else {
           entry.target.classList.remove("show");
         }

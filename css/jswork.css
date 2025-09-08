@@ -22,33 +22,6 @@
     opacity: 0.9;
 }
 
-.footer-main {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-items: flex-start;
-}
-
-.footer-info {
-    flex: 1;
-    /* 왼쪽 영역 */
-    width: 50px;
-    /* 최소 너비 */
-}
-
-.footer-map {
-    flex: 3;
-    margin: 0 20px 0 0;
-    padding: 0;
-    display: flex;
-}
-
-.footer-map #map {
-    width: 100%;
-    min-height: 300px;
-    /* 높이 보장 */
-}
 
 /* transform 여러 효과 적용 가능 , 모바일에서는 사용 안함
 rotateX(-180deg) -> rotateX(0)
