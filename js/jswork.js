@@ -3,13 +3,17 @@
   let currentIndex = 0;
   let isScrolling = false;
   let wheelDelta = 0;
-  
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          currentIndex = Array.from(sections).indexOf(entry.target);
           entry.target.classList.add("show");
-          map.invalidateSize();
+
+          if (entry.target.id === "footer") {
+            map.invalidateSize();
+          }
         } else {
           entry.target.classList.remove("show");
         }
@@ -40,8 +44,6 @@
   function handleWheelDesktop(e) {
     wheelDelta += e.deltaY;
 
-    console.log("e.deltaX e.deltaY", e.deltaX, e.deltaY);
-
     if (!isScrolling && Math.abs(wheelDelta) > 15) {
       let moved = false;
 
@@ -62,9 +64,8 @@
           isScrolling = false;
         }, 1000);
       }
-
-      wheelDelta = 0;
     }
+    wheelDelta = 0;
   }
 
   // 창 크기 변경 시 데스크톱 스크롤 적용 여부 재검토
@@ -114,8 +115,7 @@ const video = document.getElementById("bg-video");
 
 if (video) {
   //video.pause();
-  if (video)
-    video.play().catch((err) => console.log("동영상 자동재생 실패", err));
+  video.play().catch((err) => console.log("동영상 자동재생 실패", err));
 }
 
 // 무료 지도 API 표시
@@ -167,8 +167,12 @@ btn.addEventListener("click", function () {
   const url = this.getAttribute("data-url");
   const width = 800;
   const height = 600;
-  const left = (window.screen.width - width) / 2;
-  const top = (window.screen.height - height) / 2;
+  // 화면 기준 가운데 좌표 계산
+  // const left = (window.screen.width - width) / 2;
+  // const top = (window.screen.height - height) / 2;
+  // 현재 창 기준 가운데 좌표 계산
+  const left = window.screenX + (window.innerWidth - width) / 2;
+  const top = window.screenY + (window.innerHeight - height) / 2;
 
   window.open(
     url,

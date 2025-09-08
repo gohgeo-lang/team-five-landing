@@ -1,6 +1,6 @@
 /* 기존 브라우저 스크롤바 숨기기 */
 html, body {
-    overflow: hidden;  /* 이거 필수! */
+    overflow: auto;  /* 이거 필수! */
 }
 
 body::-webkit-scrollbar {
