@@ -1,0 +1,81 @@
+/* 동영상을 배경으로 */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.section {
+    opacity: 0.9;
+}
+
+.detail-section {
+    opacity: 0.9;
+}
+
+#main-visual {
+    opacity: 0.9;
+}
+
+.footer-main {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.footer-info {
+    flex: 1;
+    /* 왼쪽 영역 */
+    width: 50px;
+    /* 최소 너비 */
+}
+
+.footer-map {
+    flex: 3;
+    margin: 0 20px 0 0;
+    padding: 0;
+    display: flex;
+}
+
+.footer-map #map {
+    width: 100%;
+    min-height: 300px;
+    /* 높이 보장 */
+}
+
+/* transform 여러 효과 적용 가능 , 모바일에서는 사용 안함
+rotateX(-180deg) -> rotateX(0)
+사용시 적당한 값 찾을 필요있음 */
+@media (min-width: 768px) {
+    .section {
+        opacity: 0;
+        transform: translateX(0);
+        transition: all 1s ease;
+    }
+
+    .detail-section {
+        transform: scale(0.95);
+    }
+
+    .section:nth-child(odd) {
+        margin-left: 200px;
+    }
+
+    .section:nth-child(even) {
+        margin-right: 200px;
+    }
+
+    .section.show {
+        margin-left: 0;
+        margin-right: 0;
+        opacity: 0.9;
+        transform: scale(0.95);
+    }
+}

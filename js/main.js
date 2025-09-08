@@ -1,59 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("navMenu");
-  const overlay = document.getElementById("overlay");
+// 헤더 관련 스크립트 (전역설정)
 
-  // 햄버거 클릭 시 메뉴 + 오버레이 토글
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    overlay.classList.toggle("active");
-  });
+const header = document.querySelector(".header");
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+const overlay = document.getElementById("overlay");
 
-  // 메뉴 링크 클릭하면 닫기
-  document.querySelectorAll(".nav-link").forEach(link => {
+/* 화면 클릭 시 작동되는 헤더토글 잠금용 변수 */
+let lock = false;
+
+// 초기 상태
+function initHeader() {
+  if (window.scrollY === 0) {
+    header.classList.add("show");
+    header.classList.remove("hidden");
+  } else {
+    header.classList.add("hidden");
+    header.classList.remove("show");
+  }
+}
+initHeader();
+
+// 스크롤 이벤트
+window.addEventListener("scroll", () => {
+  if (lock || header.classList.contains("fixed")) return;
+  if (window.scrollY === 0) {
+    header.classList.add("show");
+    header.classList.remove("hidden");
+  } else {
+    header.classList.add("hidden");
+    header.classList.remove("show");
+  }
+});
+
+// 화면 클릭 → 헤더 토글
+document.addEventListener("click", (e) => {
+    if (lock || header.classList.contains("fixed")) return; 
+
+    // 햄버거, 메뉴, 검색창, 캐러셀버튼 클릭 시 무시(잠금 조건들)
+    if (
+        e.target.closest("#hamburger") ||
+        e.target.closest("#navMenu") ||
+        e.target.closest(".search-box") ||
+        e.target.closest("#introCarousel")
+    )
+        return;
+
+  header.classList.toggle("show");
+  header.classList.toggle("hidden");
+});
+
+// 햄버거 버튼 클릭
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navMenu.classList.toggle("active");
+  overlay.classList.toggle("active");
+
+    if (navMenu.classList.contains("active")) {
+        // 메뉴 열림 → 헤더 고정
+        header.classList.add("show", "fixed");
+        header.classList.remove("hidden");
+    } else {
+        // 메뉴 닫힘 → 고정 해제 + 헤더 보이기
+        closeMenu();
+    }
+});
+
+// 메뉴 링크 클릭 → 닫기
+document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      overlay.classList.remove("active");
+        closeMenu();
     });
-  });
+});
 
-  // 오버레이 클릭해도 닫기
-  overlay.addEventListener("click", () => {
+// 오버레이 클릭 → 닫기
+overlay.addEventListener("click", () => {
+    closeMenu();
+});
+
+// 메뉴 닫기 함수
+function closeMenu() {
     navMenu.classList.remove("active");
     overlay.classList.remove("active");
-  });
+    header.classList.remove("fixed");
+    header.classList.add("show");
+    header.classList.remove("hidden");
 
-  // 📌 스크롤 게이지
-  const sections = document.querySelectorAll("section:not(#footer)");
-  const progressFill = document.querySelector(".progress-fill");
-  const topNumber = document.querySelector(".section-number.top");
-  const bottomNumber = document.querySelector(".section-number.bottom");
-
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // 🔥 마지막 섹션 끝까지만 기준으로 잡음
-    const lastSection = sections[sections.length - 1];
-    const lastSectionBottom = lastSection.offsetTop + lastSection.offsetHeight;
-    const scrollMax = lastSectionBottom - windowHeight;
-
-    // 현재 스크롤 진행도 (0 ~ 1)
-    const progress = Math.min(scrollY / scrollMax, 1);
-
-    // 게이지 채우기
-    progressFill.style.height = `${progress * 100}%`;
-
-    // 현재 섹션 번호 업데이트
-    let currentSectionIndex = 0;
-    sections.forEach((section, index) => {
-      if (scrollY + windowHeight / 2 >= section.offsetTop) {
-        currentSectionIndex = index;
-      }
-    });
-
-    const sectionNumber = String(currentSectionIndex + 1).padStart(2, "0");
-    topNumber.textContent = sectionNumber;
-    bottomNumber.textContent = sectionNumber;
-  });
-});
+    lock = true;
+    setTimeout(() => (lock = false), 100);
+}

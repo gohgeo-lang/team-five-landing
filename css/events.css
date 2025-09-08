@@ -1,0 +1,155 @@
+/* in css/events.css */
+
+/* === 이벤트 섹션 === */
+
+.events-section {
+    height: auto;
+    min-height: 100vh; /* 최소 화면 높이를 채우도록 설정 */
+    display: flex;
+    align-items: center; /* 콘텐츠를 세로 중앙에 배치 */
+    padding: 6rem 1rem;
+    background-color: #fdfaf6;
+    color: #4a4a4a;
+}
+
+.events-section .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.events-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #5a3e36;
+}
+
+.events-section .section-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 4rem;
+}
+
+/* 카드들을 감싸는 컨테이너 */
+.event-container {
+    display: flex; /* 가로 배치를 위해 Flexbox 사용 */
+    justify-content: center; /* 카드들을 중앙에 배치 */
+    gap: 2rem; /* 카드 사이의 간격 */
+    flex-wrap: wrap; /* 화면이 줄어들면 줄바꿈 허용 */
+}
+
+/* 개별 이벤트 카드 */
+.event-card {
+    flex: 1; /* 모든 카드가 동일한 너비를 갖도록 설정 */
+    min-width: 300px; /* 카드의 최소 너비 설정 (너무 줄어들지 않도록) */
+    max-width: 380px; /* 카드의 최대 너비 설정 */
+    display: flex;
+    flex-direction: column; /* 카드 내부 요소를 세로로 배치 */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* 이미지 모서리 둥글게 */
+
+    /* 카드 전체의 최소 높이를 설정하여, 내용이 적어도 같은 높이를 유지하도록 합니다. */
+    min-height: 480px; /* 이 값을 조절하여 카드 높이를 통일 */
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* 이미지를 감싸는 컨테이너 */
+.event-image-container {
+    width: 100%;
+    height: 200px; /* 모든 이미지의 높이를 200px로 고정 */
+    overflow: hidden; /* 컨테이너를 벗어나는 이미지는 숨김 */
+    /* margin-bottom: 1.5rem; // 이 마진은 텍스트 래퍼 안에서 조절 */
+}
+
+/* 카드 내 이미지 스타일 */
+.event-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 핵심: 비율을 유지하며 컨테이너를 꽉 채움 (잘림 발생) */
+    transition: transform 0.4s ease; /* 호버 효과를 위한 transition */
+}
+
+/* 카드에 마우스 올렸을 때 이미지 확대 효과 */
+.event-card:hover .event-card-image {
+    transform: scale(1.05); /* 이미지를 1.05배 확대 */
+}
+
+/* 이미지 아래의 텍스트 콘텐츠(제목, 날짜)를 감싸는 래퍼 */
+/* 여기에 패딩을 주어 이미지와 분리하고 텍스트 정렬을 관리합니다. */
+.event-content-wrapper {
+    padding: 1.5rem 2rem 1rem; /* 상, 좌우, 하 패딩 */
+    flex-grow: 1; /* 남은 공간을 차지하여 버튼을 아래로 밀어냄 */
+    display: flex; /* 내부 요소들을 세로로 정렬하기 위해 flex 사용 */
+    flex-direction: column;
+    justify-content: center; /* 콘텐츠를 상단에 정렬 */
+}
+
+.event-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    /* 제목의 최소 높이를 고정하여, 텍스트 길이에 관계없이 동일한 공간을 차지하도록 합니다. */
+    min-height: 60px; /* 이 값을 조절하여 제목 높이를 통일 */
+    display: flex;
+    align-items: center; /* 제목 텍스트를 세로 중앙 정렬 */
+    justify-content: center; /* 제목 텍스트를 가로 중앙 정렬 */
+}
+
+.event-date {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem; /* 날짜 아래 여백을 줘서 버튼과의 간격 확보 */
+}
+
+/* 신청하기 버튼 */
+.reserve-btn {
+    display: block;
+    width: calc(100% - 4rem); /* 좌우 패딩 2rem씩 제외한 너비 */
+    margin: auto 2rem 2rem; /* 상단 auto로 콘텐츠가 밀려도 항상 하단에 위치, 좌우 2rem 패딩, 하단 2rem 마진 */
+    padding: 15px 20px;
+    background-color: #FF5F1F; /* 포인트 색상 */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #e64a00; /* 호버 시 약간 어두운 색 */
+    color: #fff;
+}
+
+
+/* === 모바일 반응형 === */
+@media (max-width: 768px) {
+    .event-container {
+        flex-direction: column; /* 세로 배치로 변경 */
+        align-items: center; /* 중앙 정렬 */
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 400px; /* 최대 너비 지정 */
+        min-height: auto; /* 모바일에서는 카드 최소 높이 해제 */
+    }
+
+    .event-title {
+        min-height: auto; /* 모바일에서는 제목 최소 높이 해제 */
+        margin-bottom: 0.5rem;
+    }
+
+    .reserve-btn {
+        width: calc(100% - 4rem); /* 데스크탑과 동일한 좌우 여백 유지 */
+    }
+}
