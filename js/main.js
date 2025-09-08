@@ -88,3 +88,27 @@ function closeMenu() {
     lock = true;
     setTimeout(() => (lock = false), 100);
 }
+
+
+// 이벤트 신청 버튼 팝업 및 신청 완료 처리 
+document.addEventListener('DOMContentLoaded', function () {
+
+    const eventButtons = document.querySelectorAll('#events .reserve-btn');
+
+    eventButtons.forEach(function(button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            if (this.classList.contains('disabled')) {
+                return;
+            }
+
+            alert('신청됐습니다');
+
+            this.textContent = '신청 완료';
+
+            this.classList.add('disabled');
+        });
+    });
+
+});
