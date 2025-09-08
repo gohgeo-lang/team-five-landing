@@ -50,6 +50,34 @@
     /* 높이 보장 */
 }
 
+/* main-visual.css */
+.visual-content h1,
+.visual-content p,
+.visual-content .cta-button {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.visual-content.show h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.visual-content.show p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.visual-content.show .cta-button {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+
 /* transform 여러 효과 적용 가능 , 모바일에서는 사용 안함
 rotateX(-180deg) -> rotateX(0)
 사용시 적당한 값 찾을 필요있음 */
