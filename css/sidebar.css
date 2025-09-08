@@ -1,8 +1,3 @@
-/* 푸터가 잘리지 않도록 body 여유 추가 */
-body {
-  padding-bottom: 120px; /* 푸터 높이에 맞춰 조정 */
-}
-
 /* 기존 스크롤 숨기기 */
 body::-webkit-scrollbar {
   width: 0;
