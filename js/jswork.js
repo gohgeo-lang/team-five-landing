@@ -3,8 +3,6 @@
   let currentIndex = 0;
   let isScrolling = false;
   let wheelDelta = 0;
-
-  console.log("sections:", sections);
   
   const observer = new IntersectionObserver(
     (entries) => {
@@ -41,6 +39,8 @@
   // 데스크톱용 섹션 스크롤
   function handleWheelDesktop(e) {
     wheelDelta += e.deltaY;
+
+    console.log("e.deltaX e.deltaY", e.deltaX, e.deltaY);
 
     if (!isScrolling && Math.abs(wheelDelta) > 15) {
       let moved = false;
@@ -158,9 +158,10 @@ modalPageFrame.addEventListener("show.bs.modal", function (event) {
 modalPageFrame.addEventListener("hidden.bs.modal", function () {
   modalPage.src = "";
 });
+*/
 
 // 버튼 클릭시 페이지 열기 팝업
-const btn = document.getElementById("popupButton");
+const btn = document.getElementById("openReservePopup");
 
 btn.addEventListener("click", function () {
   const url = this.getAttribute("data-url");
@@ -175,7 +176,6 @@ btn.addEventListener("click", function () {
     `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
   );
 });
-*/
 
 // 마우스 위치에 따라 변형
 // const card = document.querySelector('.detail-item');

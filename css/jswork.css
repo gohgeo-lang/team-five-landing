@@ -11,15 +11,27 @@
 }
 
 .section {
-    opacity: 0.9;
+    opacity: 0.985;
 }
 
 .detail-section {
-    opacity: 0.9;
+    opacity: 0.985;
 }
 
 #main-visual {
-    opacity: 0.9;
+    opacity: 0.985;
+}
+
+#intro {
+    opacity: 0.985;
+}
+
+#reserve {
+    opacity: 0.985;
+}
+
+#events {
+    opacity: 0.985;
 }
 
 .footer-main {
