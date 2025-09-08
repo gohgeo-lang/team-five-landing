@@ -2,10 +2,10 @@
 
 /* 섹션 기본 설정 */
 .reserve-section {
-    height: auto; /* 콘텐츠 길이에 따라 높이 자동 조절 */
+    height: auto;
     padding: 6rem 0;
-    background-color: #52575d; /* detail 섹션과 유사한 어두운 톤 */
-    color: #fff; /* 기본 텍스트 색상을 흰색으로 */
+    background-color: #52575d;
+    color: #fff;
 }
 
 .reserve-section .container {
@@ -15,43 +15,43 @@
 }
 
 .reserve-section .section-title {
-    font-size: 2.8rem; /* 제목 크기 키움 */
+    font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
-    color: #FF5F1F; /* 포인트 색상 */
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7); /* 그림자 추가 */
+    color: #FF5F1F;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .reserve-section .section-subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9); /* 흰색 계열 */
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 3.5rem;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* 층별 소개 탭 */
 .floor-selection {
-    margin-bottom: 4rem; /* 탭과 다음 섹션 간격 조정 */
+    margin-bottom: 4rem;
 }
 
 .floor-selection .nav-pills {
-    justify-content: center; /* 탭 버튼 중앙 정렬 */
-    margin-bottom: 1.5rem !important; /* 부트스트랩 기본 마진 오버라이드 */
+    justify-content: center;
+    margin-bottom: 1.5rem !important;
 }
 
 .floor-selection .nav-pills .nav-link {
-    background-color: rgba(255, 255, 255, 0.15); /* 어두운 배경에 맞는 반투명 흰색 */
-    color: rgba(255, 255, 255, 0.7); /* 일반 텍스트 색상 */
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 0 8px; /* 탭 버튼 사이 간격 넓힘 */
-    padding: 12px 20px; /* 탭 버튼 크기 조정 */
+    margin: 0 8px;
+    padding: 12px 20px;
     transition: all 0.3s ease;
     font-weight: 500;
 }
 
 .floor-selection .nav-pills .nav-link.active,
 .floor-selection .nav-pills .show > .nav-link {
-    background-color: #FF5F1F; /* 활성화된 탭은 포인트 색상 */
+    background-color: #FF5F1F;
     color: #fff;
     font-weight: bold;
     border-color: #FF5F1F;
@@ -62,49 +62,48 @@
     color: #fff;
 }
 
-
 .floor-selection .tab-content {
-    background-color: rgba(0, 0, 0, 0.2); /* 어두운 배경과 어울리는 반투명 블랙 */
-    padding: 2.5rem; /* 패딩 증가 */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 그림자 강조 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .floor-info {
     display: flex;
     align-items: center;
-    gap: 2.5rem; /* 이미지와 텍스트 간격 넓힘 */
+    gap: 2.5rem;
 }
 
 .floor-info img {
-    max-width: 280px; /* 이미지 크기 약간 키움 */
+    max-width: 280px;
     width: 45%;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* 이미지 그림자 추가 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .floor-info p {
     font-size: 1.1rem;
     line-height: 1.8;
     text-align: left;
-    color: rgba(255, 255, 255, 0.9); /* 텍스트 색상 흰색 계열 */
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6); /* 텍스트 그림자 */
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* 예약 절차 */
-.reserve-section .step {
+.step {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 3rem;
     border-radius: 8px;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.reserve-section .step h4 {
+.step h4 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #FF5F1F;
-    margin-bottom: 3rem; /* << 이 부분이 문제를 해결합니다 */
+    color: #fff;
+    margin-bottom: 2.5rem;
     padding-bottom: 0.8rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
@@ -112,12 +111,13 @@
 
 /* 브라우저 기본 날짜 선택 input 스타일 */
 #nativeDatePicker {
+    margin-top: 1.5rem;
     width: 100%;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.1); /* 어두운 배경에 맞는 입력칸 배경색 */
+    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     height: 50px;
     -webkit-appearance: none;
@@ -125,23 +125,23 @@
     text-align: center;
 }
 
-/* 날짜 선택 아이콘 스타일링 (크롬/엣지 등 - Webkit 브라우저) */
 #nativeDatePicker::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* 아이콘 색상 반전 (어두운 배경에 흰색 아이콘) */
-    font-size: 1.5rem; /* 아이콘 크기 키움 */
+    filter: invert(1);
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 /* 시간 선택 버튼 */
 .time-slots {
+    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* 버튼 간격 넓힘 */
-    justify-content: center; /* 버튼 중앙 정렬 */
+    gap: 15px;
+    justify-content: center;
 }
 
 .time-slot-btn {
-    padding: 12px 20px; /* 버튼 크기 키움 */
+    padding: 12px 20px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     background-color: rgba(255, 255, 255, 0.15);
     color: #fff;
@@ -153,7 +153,7 @@
 }
 
 .time-slot-btn:hover {
-    background-color: #FF5F1F; /* 호버 시 포인트 색상 */
+    background-color: #FF5F1F;
     border-color: #FF5F1F;
     color: #fff;
 }
@@ -162,48 +162,41 @@
 .reservation-form {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem; /* << 폼 그룹 간격을 더 넓혔습니다 */
+    gap: 2.5rem;
 }
 
 .reservation-form .form-group {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .reservation-form label {
-    margin-bottom: 1rem; /* 라벨과 입력칸 간격 넓힘 */
-    font-weight: 600; /* 라벨 굵게 */
+    margin-bottom: 0;
+    font-weight: 600;
     text-align: left;
-    color: #fff; /* 라벨 색상 흰색 */
+    color: #fff;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .reservation-form input {
-    padding: 14px; /* 입력칸 패딩 증가 */
+    padding: 14px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     font-size: 1.05rem;
-    background-color: rgba(255, 255, 255, 0.1); /* 입력칸 배경색 */
-    color: #fff; /* 입력 텍스트 색상 흰색 */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
-/* 입력칸 포커스 시 스타일 */
 .reservation-form input:focus {
-    border-color: #FF5F1F; /* 포커스 시 포인트 색상 테두리 */
-    box-shadow: 0 0 0 0.2rem rgba(255, 95, 31, 0.25); /* 부트스트랩 유사 포커스 효과 */
+    border-color: #FF5F1F;
+    box-shadow: 0 0 0 0.2rem rgba(255, 95, 31, 0.25);
     outline: none;
 }
 
-/* placeholder 텍스트 색상 (모든 브라우저 호환) */
-.reservation-form input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-.reservation-form input:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-.reservation-form input::-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
+.reservation-form input::placeholder { color: rgba(255, 255, 255, 0.6); }
+.reservation-form input:-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); }
+.reservation-form input::-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); }
 
 .reservation-form .submit-btn {
     background-color: #FF5F1F;
@@ -247,7 +240,7 @@
         font-size: 0.95rem;
     }
 
-    .reserve-section .step h4 { /* 반응형에서도 선택자 수정 */
+    .step h4 {
         font-size: 1.5rem;
     }
 
