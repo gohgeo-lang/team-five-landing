@@ -50,7 +50,7 @@
 }
 
 .floor-selection .nav-pills .nav-link.active,
-.floor-selection .nav-pills .show > .nav-link {
+.floor-selection .nav-pills .show>.nav-link {
     background-color: #FF5F1F;
     color: #fff;
     font-weight: bold;
@@ -194,9 +194,17 @@
     outline: none;
 }
 
-.reservation-form input::placeholder { color: rgba(255, 255, 255, 0.6); }
-.reservation-form input:-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); }
-.reservation-form input::-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); }
+.reservation-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.reservation-form input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.reservation-form input::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
 
 .reservation-form .submit-btn {
     background-color: #FF5F1F;
@@ -251,5 +259,15 @@
     .time-slot-btn {
         padding: 10px 15px;
         font-size: 1rem;
+    }
+
+    .floor-selection .nav-pills {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .floor-selection .nav-pills .nav-link {
+        margin: 0;    
     }
 }
