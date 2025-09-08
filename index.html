@@ -20,10 +20,12 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/reserve.css">
     <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     
 </head>
 
 <body>
+    
     <!-- 동영상 백그라운드 -->
     <video autoplay muted loop playsinline id="bg-video">
         <source src="https://cdn.pixabay.com/video/2018/07/02/17013-278400948_large.mp4" type="video/mp4" />
@@ -315,6 +317,18 @@
             </div>
         </div>
     </section>
+    
+<!-- 🔥 스크롤 게이지 & 번호 -->
+<div class="scroll-progress-container">
+  <span class="section-number top">01</span>
+  <div class="progress-track">
+    <div class="progress-fill"></div>
+  </div>
+  <span class="section-number bottom">01</span>
+</div>
+
+<!-- body 맨 아래 -->
+<script src="js/sidebar.js"></script>
 
     <!-- 푸터 -->
     <footer id="footer" class="footer section">
@@ -351,11 +365,13 @@
         </div>
     </footer>
 
+    
     <!-- Js 파일 불러오기(부트스트랩 & 프로젝트JS) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- 무료 지도 API -->
     <script src="js/jswork.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 
 </html>
