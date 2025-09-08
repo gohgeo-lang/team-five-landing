@@ -3,7 +3,7 @@
   let currentIndex = 0;
   let isScrolling = false;
   let wheelDelta = 0;
-
+  
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -40,21 +40,30 @@
   function handleWheelDesktop(e) {
     wheelDelta += e.deltaY;
 
+    console.log("e.deltaX e.deltaY", e.deltaX, e.deltaY);
+
     if (!isScrolling && Math.abs(wheelDelta) > 15) {
-      isScrolling = true;
+      let moved = false;
 
       if (wheelDelta > 0 && currentIndex < sections.length - 1) {
         currentIndex++;
+        moved = true;
       } else if (wheelDelta < 0 && currentIndex > 0) {
         currentIndex--;
+        moved = true;
       }
 
-      sections[currentIndex].scrollIntoView({ behavior: "smooth" });
-      wheelDelta = 0;
+      if (moved) {
+        isScrolling = true;
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 800);
+        sections[currentIndex].scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 1000);
+      }
+
+      wheelDelta = 0;
     }
   }
 
@@ -74,7 +83,26 @@
   initDesktopScroll();
 })();
 
-// 로고 애니메이션 
+document.addEventListener("DOMContentLoaded", () => {
+  const visual = document.querySelector(".visual-content");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visual.classList.add("show");
+        } else {
+          visual.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(visual);
+});
+
+// 로고 애니메이션
 // const logo = document.querySelector('.logo');
 // setInterval(() => {
 //   logo.style.transform = 'scale(1.2)';
@@ -130,9 +158,10 @@ modalPageFrame.addEventListener("show.bs.modal", function (event) {
 modalPageFrame.addEventListener("hidden.bs.modal", function () {
   modalPage.src = "";
 });
+*/
 
 // 버튼 클릭시 페이지 열기 팝업
-const btn = document.getElementById("popupButton");
+const btn = document.getElementById("openReservePopup");
 
 btn.addEventListener("click", function () {
   const url = this.getAttribute("data-url");
@@ -147,7 +176,6 @@ btn.addEventListener("click", function () {
     `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
   );
 });
-*/
 
 // 마우스 위치에 따라 변형
 // const card = document.querySelector('.detail-item');
